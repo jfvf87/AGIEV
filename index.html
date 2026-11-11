@@ -49,7 +49,13 @@
   button:hover { background:var(--accent); color:var(--bg); }
   footer { border-top:1px solid var(--line); padding:32px 48px; color:var(--muted); font-size:13px; text-align:center; }
   @media (max-width:640px) { header { padding:20px 24px; } nav a { margin-left:18px; } section { padding:56px 24px; } .hero { min-height:auto; padding-top:110px; } .featured { padding:28px; } }
-</style>
+  .menu { display:inline-block; position:relative; margin-left:32px; font-size:14px; }
+  .menu summary { color:var(--muted); cursor:pointer; list-style:none; transition:color .2s; }
+  .menu summary::-webkit-details-marker { display:none; }
+  .menu summary:hover, .menu[open] summary { color:var(--accent); }
+  .menu-list { position:absolute; right:0; top:100%; margin-top:14px; background:var(--panel); border:1px solid var(--line); min-width:260px; padding:8px 0; z-index:20; }
+  .menu-list a { display:block; padding:10px 20px; margin:0; color:var(--text); white-space:nowrap; }
+  .menu-list a:hover { color:var(--accent); background:rgba(0,217,255,0.05); }</style>
 </head>
 <body>
 
@@ -60,7 +66,18 @@
   </div>
   <nav>
     <a href="#controller">Controller</a>
-    <a href="#supplies">Supplies</a>
+    <details class="menu">
+      <summary>Supplies</summary>
+      <div class="menu-list">
+        <a href="products/filter-sponge-15-ppi.html">Filter sponge 15 PPI</a>
+        <a href="products/filter-sponge-35-ppi.html">Filter sponge 35 PPI</a>
+        <a href="products/filter-sponge-45-ppi.html">Filter sponge 45 PPI</a>
+        <a href="products/pvc-ball-valve-25mm.html">PVC ball valve 25 mm</a>
+        <a href="products/pvc-ball-valve-20mm.html">PVC ball valve 20 mm</a>
+        <a href="products/metal-air-line-valve.html">Metal air line valve</a>
+        <a href="products/pipettes.html">Pipettes</a>
+      </div>
+    </details>
     <a href="#faq">FAQ</a>
     <a href="#waitlist">Waitlist</a>
   </nav>
