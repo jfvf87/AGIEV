@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGIEV C1 â€“ AGIEV</title>
+<meta name="description" content="Controller for a single aquarium with a small number of modules. Runs at 12 V.">
+<style>
+  :root { --bg:#000000; --panel:#0f1419; --line:#1a2332; --text:#ffffff; --muted:#b0b8c1; --accent:#00d9ff; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; line-height:1.6; }
+  header { display:flex; justify-content:space-between; align-items:center; padding:24px 48px; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:16px; }
+  .logo { display:flex; align-items:center; gap:12px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; font-size:15px; color:var(--text); text-decoration:none; }
+  .logo img { height:32px; width:auto; filter:invert(1); }
+  header a.back { color:var(--muted); text-decoration:none; font-size:14px; }
+  header a.back:hover { color:var(--accent); }
+  main { max-width:900px; margin:0 auto; padding:64px 32px; }
+  h1 { font-size:clamp(28px,4vw,40px); font-weight:300; margin-bottom:12px; }
+  .price { color:var(--accent); font-size:14px; letter-spacing:.14em; text-transform:uppercase; font-weight:500; margin-bottom:24px; }
+  .short { color:var(--muted); margin-bottom:28px; }
+  h2 { font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:500; margin:32px 0 14px; }
+  table { width:100%; border-collapse:collapse; }
+  td { padding:10px 0; border-bottom:1px solid var(--line); font-size:15px; vertical-align:top; }
+  td:first-child { color:var(--muted); width:40%; }
+  ul.list { padding-left:18px; color:var(--text); font-size:15px; }
+  ul.list li { margin-bottom:8px; }
+  .notify { margin-top:36px; border:1px solid var(--line); background:var(--panel); padding:28px; }
+  .notify p { color:var(--muted); font-size:14px; margin-bottom:16px; }
+  form { display:grid; gap:12px; max-width:480px; }
+  input { width:100%; padding:14px 16px; background:var(--bg); border:1px solid var(--line); color:var(--text); font:inherit; font-size:15px; }
+  input:focus { outline:none; border-color:var(--accent); }
+  button { padding:14px 32px; background:transparent; border:2px solid var(--accent); color:var(--accent); font:inherit; font-size:14px; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; width:fit-content; font-weight:500; }
+  button:hover { background:var(--accent); color:var(--bg); }
+  footer { border-top:1px solid var(--line); padding:32px 48px; color:var(--muted); font-size:13px; text-align:center; }
+  @media (max-width:640px) { header, footer { padding-left:24px; padding-right:24px; } main { padding:40px 24px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html"><img src="../IMAGES/PNG/A%20Icon%20da%20AGIEV.png" alt="AGIEV Icon"><span>AGIEV</span></a>
+  <a class="back" href="../index.html#controller">&larr; Back to controllers</a>
+</header>
+
+<main>
+  <h1>AGIEV C1</h1>
+  <p class="price">In development</p>
+  <p class="short">Controller for a single aquarium with a small number of modules. Runs at 12 V.</p>
+
+  <h2>Technical details</h2>
+  <table>
+    <tr><td>Voltage</td><td>12 V</td></tr>
+    <tr><td>Best for</td><td>One aquarium with a few modules</td></tr>
+    <tr><td>Expansion</td><td>Limited, because the system runs at 12 V</td></tr>
+  </table>
+
+  <h2>Features</h2>
+  <ul class="list"><li>Precise temperature control</li>
+<li>Programmable lighting with day and night cycles</li>
+<li>Water level monitoring</li>
+<li>Remote control and alerts</li></ul>
+
+  <h2>Installation</h2>
+  <p class="short">Installation details will be published before launch.</p>
+
+  <div class="notify">
+    <h2 style="margin-top:0">Be the first to know</h2>
+    <p>The controller is still in development. Leave your email and we will let you know as soon as it is available to buy.</p>
+    <form action="https://formspree.io/f/xkjrnrzb" method="POST">
+      <input type="hidden" name="_subject" value="AGIEV waitlist: AGIEV C1">
+      <input type="hidden" name="product" value="AGIEV C1">
+      <input type="email" name="email" placeholder="Your email" required>
+      <button type="submit">Notify me</button>
+    </form>
+  </div>
+</main>
+
+<footer>&copy; 2026 AGIEV, part of Veiga Labs. All rights reserved.</footer>
+
+</body>
+</html>
