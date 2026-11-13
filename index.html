@@ -55,7 +55,41 @@
   .menu summary:hover, .menu[open] summary { color:var(--accent); }
   .menu-list { position:absolute; right:0; top:100%; margin-top:14px; background:var(--panel); border:1px solid var(--line); min-width:260px; padding:8px 0; z-index:20; }
   .menu-list a { display:block; padding:10px 20px; margin:0; color:var(--text); white-space:nowrap; }
-  .menu-list a:hover { color:var(--accent); background:rgba(0,217,255,0.05); }</style>
+  .menu-list a:hover { color:var(--accent); background:rgba(0,217,255,0.05); }
+  /* --- v2: agua animada, diagrama, icones, beneficios e faixa de foto --- */
+  .hero-wrap { position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+  .hero-wrap::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 30%, rgba(0,217,255,.14), transparent 60%), radial-gradient(ellipse at 15% 100%, rgba(0,120,160,.18), transparent 55%); }
+  .hero-wrap .hero { position:relative; min-height:78vh; padding-bottom:170px; }
+  .waves { position:absolute; left:0; right:0; bottom:0; height:130px; pointer-events:none; }
+  .waves svg { position:absolute; bottom:0; left:0; width:200%; height:100%; }
+  .waves .w1 { animation:drift 22s linear infinite; }
+  .waves .w2 { animation:drift 34s linear infinite reverse; height:80%; }
+  @keyframes drift { to { transform:translateX(-50%); } }
+  .bubble { position:absolute; bottom:-30px; width:8px; height:8px; border:1px solid rgba(0,217,255,.6); border-radius:50%; animation:rise 14s ease-in infinite; }
+  .bubble:nth-child(1){left:12%;width:14px;height:14px;animation-duration:16s}
+  .bubble:nth-child(2){left:27%;width:5px;height:5px;animation-delay:4s;animation-duration:11s}
+  .bubble:nth-child(3){left:44%;width:22px;height:22px;animation-delay:7s;animation-duration:20s}
+  .bubble:nth-child(4){left:62%;width:9px;height:9px;animation-delay:2s;animation-duration:13s}
+  .bubble:nth-child(5){left:76%;width:17px;height:17px;animation-delay:9s;animation-duration:18s}
+  .bubble:nth-child(6){left:90%;width:7px;height:7px;animation-delay:5s;animation-duration:12s}
+  @keyframes rise { 0%{transform:translateY(0);opacity:0} 15%{opacity:.9} 100%{transform:translateY(-70vh);opacity:0} }
+  .lead { font-size:22px; font-weight:300; max-width:720px; margin-bottom:40px; }
+  .diagram { width:100%; height:auto; display:block; }
+  .diagram text { fill:var(--text); font-size:13px; font-family:inherit; letter-spacing:.06em; }
+  .diagram .dim { fill:var(--muted); font-size:11px; }
+  .flow { stroke-dasharray:6 8; animation:flow 1.6s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset:-14; } }
+  .card svg.ico { width:100%; max-width:200px; height:auto; margin-bottom:20px; stroke:var(--accent); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .feat { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px; }
+  .feat div { border-left:2px solid var(--accent); padding-left:16px; }
+  .feat h3 { font-weight:500; font-size:17px; margin-bottom:4px; }
+  .feat p { color:var(--muted); font-size:14px; }
+  .photo-band { position:relative; height:150px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); overflow:hidden; background:#000; }
+  .photo-band img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 60%; filter:grayscale(.7) brightness(.45) contrast(1.1); }
+  .photo-band::before { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.25) 50%, rgba(0,0,0,.85)), linear-gradient(180deg, rgba(0,217,255,.14), transparent 60%); }
+  @media (max-width:760px){ .photo-band{height:110px} .hero-wrap .hero{padding-bottom:150px;min-height:auto} }
+  @media (prefers-reduced-motion:reduce){ .waves svg,.bubble,.flow{animation:none} }
+</style>
 </head>
 <body>
 
@@ -84,22 +118,52 @@
         <a href="products/pipettes.html">Pipettes</a>
       </div>
     </details>
+    <a href="#how">How it works</a>
     <a href="#faq">FAQ</a>
     <a href="#waitlist">Waitlist</a>
   </nav>
 </header>
 
+<div class="hero-wrap">
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
 <section class="hero">
   <h1>Smarter aquariums. <span>Better supplies.</span></h1>
   <p class="tagline">Behind Life</p>
   <p>AGIEV builds intelligent aquarium automation and selects the supplies that keep your water clean and your fish healthy.</p>
   <a class="btn" href="#waitlist">Join the waitlist</a>
 </section>
+  <div class="waves" aria-hidden="true">
+    <svg class="w2" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 50 Q150 20 300 50 T600 50 T900 50 T1200 50 V100 H0Z" fill="rgba(0,120,160,.35)"/></svg>
+    <svg class="w1" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 60 Q150 30 300 60 T600 60 T900 60 T1200 60 V100 H0Z" fill="rgba(0,217,255,.14)" stroke="#00d9ff" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>
+  </div>
+</div>
+
+
+<section id="how">
+  <h2>How it works</h2>
+  <p class="lead">One controller, modules that plug in with a single cable, and an app that keeps watch while you are away.</p>
+  <svg class="diagram" viewBox="0 0 900 260" fill="none" stroke="#00d9ff" stroke-width="1.4" stroke-linecap="round" role="img" aria-label="Phone app connected wirelessly to the controller, which connects by cable to valve and probe modules">
+    <rect x="30" y="60" width="64" height="116" rx="10"/><line x1="52" y1="160" x2="72" y2="160"/>
+    <path d="M44 100 q18 -16 36 0 M52 110 q10 -8 20 0"/><circle cx="62" cy="120" r="2" fill="#00d9ff"/>
+    <text x="62" y="205" text-anchor="middle">APP</text><text x="62" y="222" text-anchor="middle" class="dim">alerts · remote</text>
+    <path class="flow" d="M104 118 H250"/><text x="177" y="108" text-anchor="middle" class="dim">wireless</text>
+    <rect x="250" y="72" width="170" height="92" rx="4"/><rect x="266" y="88" width="46" height="26" rx="2"/><circle cx="388" cy="96" r="4"/><circle cx="388" cy="116" r="4"/><circle cx="388" cy="136" r="4" fill="#00d9ff"/>
+    <text x="335" y="190" text-anchor="middle">CONTROLLER</text><text x="335" y="207" text-anchor="middle" class="dim">AGIEV C1 · C2</text>
+    <path class="flow" d="M420 118 H500"/><text x="460" y="108" text-anchor="middle" class="dim">single cable</text>
+    <rect x="500" y="84" width="110" height="68" rx="4"/><circle cx="555" cy="118" r="14"/><path d="M555 104 v-10 M555 142 v10 M541 118 h-10 M569 118 h10"/>
+    <text x="555" y="176" text-anchor="middle">VALVE</text><text x="555" y="193" text-anchor="middle" class="dim">motorised valves</text>
+    <path class="flow" d="M610 118 H650"/>
+    <rect x="650" y="84" width="110" height="68" rx="4"/><path d="M690 98 v34 a10 10 0 1 0 10 0 v-34"/><line x1="690" y1="112" x2="700" y2="112"/><line x1="690" y1="122" x2="700" y2="122"/>
+    <text x="705" y="176" text-anchor="middle">PROBE</text><text x="705" y="193" text-anchor="middle" class="dim">temperature · TDS · more</text>
+    <path class="flow" d="M760 118 H800"/><text x="830" y="123" text-anchor="middle" class="dim">+ more</text>
+  </svg>
+</section>
 
 <section id="controller">
   <h2>Controllers</h2>
   <div class="grid">
     <a class="card" href="products/agiev-c1.html" style="text-decoration:none;color:inherit;cursor:pointer">
+      <svg class="ico" viewBox="0 0 200 120" aria-hidden="true"><rect x="30" y="30" width="140" height="64" rx="5"/><rect x="42" y="42" width="40" height="22" rx="2"/><circle cx="140" cy="48" r="4"/><circle cx="154" cy="48" r="4"/><circle cx="147" cy="68" r="4" fill="#00d9ff"/><path d="M60 94 v12 M100 94 v12 M140 94 v12"/><path d="M20 62 H30"/></svg>
       <h3>AGIEV C1</h3>
       <p>Controller for a single aquarium with a small number of modules. Runs at 12 V.</p>
       <ul class="list" style="padding-left:18px;margin:12px 0;color:var(--text);font-size:14px">
@@ -110,6 +174,7 @@
       <p><strong>Discover AGIEV C1 &rarr;</strong></p>
     </a>
     <a class="card" href="products/agiev-c2.html" style="text-decoration:none;color:inherit;cursor:pointer">
+      <svg class="ico" viewBox="0 0 200 120" aria-hidden="true"><rect x="12" y="24" width="176" height="76" rx="5"/><rect x="24" y="36" width="50" height="26" rx="2"/><circle cx="150" cy="44" r="4"/><circle cx="164" cy="44" r="4"/><circle cx="157" cy="64" r="4" fill="#00d9ff"/><path d="M30 100 v10 M70 100 v10 M110 100 v10 M150 100 v10"/><path d="M96 40 h36 M96 52 h36 M96 64 h36 M96 76 h36" stroke-opacity=".5"/></svg>
       <h3>AGIEV C2</h3>
       <p>Controller designed for fishrooms. Runs at 48 V, with greater expansion and a wider range of modules.</p>
       <ul class="list" style="padding-left:18px;margin:12px 0;color:var(--text);font-size:14px">
@@ -121,6 +186,20 @@
     </a>
   </div>
 </section>
+
+<section id="designed">
+  <h2>Designed for peace of mind</h2>
+  <div class="feat">
+    <div><h3>Phone alerts</h3><p>Know when temperature, water level or a valve needs attention.</p></div>
+    <div><h3>Safe by design</h3><p>If something fails, the controller keeps your aquarium in a predictable state.</p></div>
+    <div><h3>Grows with you</h3><p>Start with a few modules and add more as your setup grows.</p></div>
+    <div><h3>Works locally</h3><p>Your aquarium keeps running even without internet. Alerts and remote control need a connection.</p></div>
+  </div>
+</section>
+
+<div class="photo-band">
+  <img src="IMAGES/photos/fish-blue-light.jpg" alt="">
+</div>
 
 <section id="supplies">
   <h2>Aquarium supplies</h2>
